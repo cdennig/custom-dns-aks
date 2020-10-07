@@ -16,7 +16,9 @@ In VM:
 
 Get IP Adress:
 
+```shell
 $ ifconfig eth0
+
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.0.4  netmask 255.255.255.0  broadcast 192.168.0.255
         inet6 fe80::20d:3aff:fe2d:a84a  prefixlen 64  scopeid 0x20<link>
@@ -25,18 +27,25 @@ eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         RX errors 0  dropped 0  overruns 0  frame 0
         TX packets 28934  bytes 4777038 (4.7 MB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
 
 --> 192.168.0.4
 
 Install bind9:
 
+```shell
 sudo apt-get update
 sudo apt-get install bind9 bind9utils bind9-doc
+```
 
 IPv4 Bind mode:
 
-sudo nano /etc/default/bind9
+```shell
+sudo vim /etc/default/bind9
+
+...
 OPTIONS="-u bind -4"
+```
 
 Restart sudo systemctl restart bind9
 
@@ -78,7 +87,7 @@ Create Zone file:
 sudo mkdir /etc/bind/zones
 sudo cp /etc/bind/db.local /etc/bind/zones/db.azure.intern
 
-sudo nano /etc/bind/zones/db.azure.intern
+sudo vim /etc/bind/zones/db.azure.intern
 
 ```plain
 ;
